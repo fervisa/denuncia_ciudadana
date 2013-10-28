@@ -1,0 +1,56 @@
+= content_for :header do
+  = render 'shared/cabecera'
+
+%p.ui-body-d.ui-corner-all{:style => "padding:0.5em;"}
+  Puedes adjuntar archivos a tu denuncia
+  %a.ui-icon-alt{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-rel" => "popup", "data-role" => "button", "data-theme" => theme(:denuncias_new_info_adjuntar), "data-transition" => "pop", :href => "#popupInfo"} Información
+
+= render 'form'
+
+= content_for :footer do
+  %div{"data-iconpos" => "top", "data-role" => "navbar"}
+    %ul
+      %li
+        %a{"data-icon" => "info", "data-rel" => "dialog", "data-theme" => theme(:denuncias_new_informacion), "data-transition" => "fade", "data-prefetch" => true, :href => home_about_path }
+          Información
+      %li
+        %a{"data-icon" => "search", "data-theme" => theme(:denuncias_new_archivo), "data-transition" => "fade", :href => "#upload-panel"}
+          Archivo
+      %li
+        %a{"data-icon" => "delete", "data-rel" => "popup", "data-theme" => theme(:denuncias_new_limpiar), "data-transition" => "pop", :href => "#confirm-clean"}
+          Limpiar
+  = render 'shared/lbs'
+
+= content_for :extra do
+  #upload-panel{ data: { role: 'panel' } }
+    %h2 Archivos
+    %p
+      Puedes adjuntar fotografías o audio a tu denuncia
+    %input#archivos{ type: 'file', name: "archivos[]", multiple: true }
+    
+    %a{ href: '#', data: { rel: 'close', role: 'button', icon: 'delete', mini: 'true', inline: 'true' } }
+      Cerrar
+
+  #confirm-clean{ data: { role: 'popup', dismissible: 'false' } }
+    %div{ data: { role: 'header' } }
+      %h1 Limpiar Formulario
+
+    %div{ data: { role: 'content' } }
+      %h3 ¿Estás seguro de querer limpiar el formulario?
+      %p
+        Esta acción no se puede deshacer
+      %a{ href: '#', data: { role: 'button', inline: 'true', rel: 'back' } }
+        Cancelar
+      %a#clean-form{ href: '#', data: { role: 'button', inline: 'true', theme: theme(:denuncias_new_limpiar_confirm) } }
+        Limpiar
+
+  #popupInfo.ui-content{"data-role" => "popup", "data-theme" => theme(:denuncias_new_popup_info), :style => "max-width:350px;"}
+    %p
+      Presiona el botón
+      %strong archivo
+      de la barra inferior para adjuntar archivos a tu denuncia
+
+:javascript
+  $(document).on('pageinit', function(event) {
+    cargaLimpiarFormulario();
+  });

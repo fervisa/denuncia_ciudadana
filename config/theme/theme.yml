@@ -1,0 +1,29 @@
+# application
+application_page: "a"
+application_header: "a"
+application_content: "a"
+application_footer: "a"
+
+# index
+index_new_denuncia: "a"
+
+# denuncias new
+denuncias_new_info_adjuntar: "a"
+denuncias_new_informacion: "a"
+denuncias_new_archivo: "a"
+denuncias_new_limpiar: "a"
+denuncias_new_limpiar_confirm: "a"
+denuncias_new_popup_info: "a"
+
+# denuncias _form
+denuncias_form_crear: "a"
+
+# denuncias show
+denuncias_show_otra: "a" 
+
+# about
+about_dialog_overlay: "a"
+about_dialog: "a"
+about_header: "a"
+about_content: "a"
+about_cerrar: "a"

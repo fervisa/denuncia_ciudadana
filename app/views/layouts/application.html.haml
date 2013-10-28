@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Denuncia Ciudadana
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{"data-role" => "page", "data-theme" => theme(:application_page)}
+    %div{"data-role" => "header", "data-theme" => theme(:application_header)}
+      = yield :header
+    %div{"data-role" => "content", "data-theme" => theme(:application_content)}
+      = yield
+    %div{"data-position" => "fixed", "data-role" => "footer", "data-theme" => theme(:application_footer)}
+      = yield :footer
+    = yield :extra

@@ -1,0 +1,24 @@
+= form_for @denuncia, html: { multipart: true, "data-ajax" => "false" } do |f|
+  = render 'error_messages', target: @denuncia
+
+  %div{"data-role" => "fieldcontain"}
+    %fieldset{"data-role" => "controlgroup"}
+    = f.label :dependencia_id
+    = f.select :dependencia_id, Dependencia.all.collect { |d| [d.nombre, d.id] }, { include_blank: true }
+
+  %div{"data-role" => "fieldcontain"}
+    %fieldset{"data-role" => "controlgroup"}
+    = f.label :funcionario
+    = f.text_field :funcionario, placeholder: "Ingresa el nombre del funcionario"
+
+  %div{"data-role" => "fieldcontain"}
+    %fieldset{"data-role" => "controlgroup"}
+    = f.label :queja
+    = f.text_area :queja, placeholder: "Ingresa tu queja o denuncia"
+
+  %div{"data-role" => "fieldcontain"}
+    %fieldset{"data-role" => "controlgroup"}
+    = f.label :email
+    = f.text_field :email, placeholder: "Para dar seguimiento a tu denuncia"
+
+  = f.submit 'Crear denuncia', data: { corners: 'true', shadow: 'true', theme: theme(:denuncias_form_crear), icon: "check", iconpos: "left", transition: "fade" }

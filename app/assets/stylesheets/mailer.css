@@ -1,0 +1,57 @@
+body {
+	background-color:#FFFFFF; 
+}
+
+.Estilo1 {
+	color: #000000;
+	font-size: 14pt;
+}
+
+.Estilo2 {
+	color: #000000;
+	font-size: 14px;
+}
+
+td {
+	font-family:verdana; 
+	color: #ffffff; 
+	font-size:8pt;
+}
+
+.text {
+	font-family:verdana;
+	color: #000000;
+	font-size:8pt;
+	text-transform: none;
+}
+
+.arnegro11
+{
+	COLOR: #000000;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 11px;
+	font-style: line-height:200%;
+}
+
+.arnegro12b
+{
+	COLOR: #FFFFFF;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: normal;
+	background-color:#164450;
+}
+
+p {
+	text-align:center;
+}
+
+.cuadro {
+	border: #666666;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	background-color: #FFFFFF;
+}

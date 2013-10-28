@@ -1,0 +1,49 @@
+%table.cuadro{:align => "center", :width => "600"}
+  %tr
+    %td
+      %table{:align => "center", :border => "0", :width => "600"}
+        %tr
+          %td{:height => "143"}
+            %table{:border => "0", :width => "90%"}
+              %tr
+                %td{:rowspan => "3", :width => "33%"}
+                  %p
+                    = image_tag "logo_top.png", :height => "104", :width => "63"
+                %td{:width => "67%"}
+                  \&nbsp;
+              %tr
+                %td
+                  %p.Estilo1
+                    DEPEDENCIA 
+              %tr
+                %td
+                  %p
+                    %span.Estilo2
+                      SECRETARIA 
+      %br
+        %br
+          %table{:align => "center", :border => "0", :width => "550"}
+            %tr
+              %td.arnegro11
+                %div{:align => "right"}
+                  Localidad, Municipio.
+                  = Date.today.strftime "%d de %B de %Y"
+            %tr
+              %td.arnegro12b
+                %p
+                  %strong
+                    Denuncia Ciudadana
+            %tr
+              %td
+                \&nbsp;
+            %tr
+              %td.arnegro11
+                %p{:style => "line-height:200%"}
+                  El número de folio asignado a tu Queja y/o Denuncia es:
+                  %br
+                  %strong= "%010d" % @denuncia.id
+                  %br
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor porta imperdiet. Aenean in tellus sapien. Etiam tristique augue non feugiat elementum. Suspendisse sit amet egestas quam, non lacinia sapien. Integer tristique imperdiet tortor, sit amet pellentesque lectus convallis quis. Phasellus mollis mauris eu ultricies imperdiet
+              %tr
+                %td
+                  \&nbsp;

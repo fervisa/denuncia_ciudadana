@@ -1,0 +1,10 @@
+.rvmrc
+db/*.sqlite3
+log/*.log
+tmp/
+*.swp
+*.directory
+cache
+public/system/
+.sass-cache/
+public/uploads/

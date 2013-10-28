@@ -1,0 +1,17 @@
+= content_for :header do
+  = render 'shared/cabecera'
+
+%div{:style => " text-align:center"}
+  %p
+    El número de folio asignado a tu Queja o Denuncia es:
+  %h3
+    = "%010d" % @denuncia.id
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor porta imperdiet. Aenean in tellus sapien. Etiam tristique augue non feugiat elementum. Suspendisse sit amet egestas quam, non lacinia sapien. Integer tristique imperdiet tortor, sit amet pellentesque lectus convallis quis. Phasellus mollis mauris eu ultricies imperdiet
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor porta imperdiet. Aenean in tellus sapien. Etiam tristique augue non feugiat elementum. Suspendisse sit amet egestas quam, non lacinia sapien. Integer tristique imperdiet tortor, sit amet pellentesque lectus convallis quis. Phasellus mollis mauris eu ultricies imperdiet
+
+= link_to 'Deseo realizar otra denuncia', new_denuncia_path, data: { icon: "alert", iconpos: "left", role: "button", theme: theme(:denuncias_show_otra), transition: "fade" }
+    
+= content_for :footer do
+  = render 'shared/lbs'
