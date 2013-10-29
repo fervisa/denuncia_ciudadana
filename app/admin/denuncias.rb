@@ -10,6 +10,25 @@ ActiveAdmin.register Denuncia do
     end
   end
 
+  # Descomentar la siguiente linea en caso de querer evitar el 'destroy' en batch
+  # batch_action :destroy, false
+
+  batch_action :finalizar do |selection|
+    Denuncia.find(selection).each { |denuncia| denuncia.cerrar }
+    redirect_to collection_path, :notice => "Denuncias marcadas como finalizadas."
+  end
+
+  batch_action :abrir do |selection|
+    Denuncia.find(selection).each { |denuncia| denuncia.abrir }
+    redirect_to collection_path, :notice => "Denuncias marcadas como abiertas."
+  end
+
+  member_action :cambiar_estado, :method => :put do
+    denuncia = Denuncia.find(params[:id])
+    denuncia.cambiar_estado
+    redirect_to :action => :show
+  end
+
   index do
     selectable_column
     column 'Folio', :id
@@ -35,8 +54,11 @@ ActiveAdmin.register Denuncia do
       row :dependencia
       row :created_at
       row :updated_at
-      row :finalizada do
+      row 'Estado', :finalizada do
         status_tag (denuncia.finalizada? ? 'Finalizada' : 'Abierta'), (denuncia.finalizada? ? :ok : :warning)
+      end
+      row :acciones do
+        link_to 'Cambiar estado', cambiar_estado_admin_denuncia_path(denuncia), method: :put
       end
       row :adjuntos do
         ul :class => 'adjuntos' do
