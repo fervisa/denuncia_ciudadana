@@ -1,4 +1,4 @@
-ActiveAdmin.register AdminUser do     
+ActiveAdmin.register AdminUser, as: "Usuario" do     
   index do                            
     column :email                     
     column :current_sign_in_at        
