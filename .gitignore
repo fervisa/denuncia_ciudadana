@@ -8,3 +8,4 @@ cache
 public/system/
 .sass-cache/
 public/uploads/
+.ruby-*
