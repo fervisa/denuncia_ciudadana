@@ -1,7 +1,5 @@
 Denunciapp::Application.routes.draw do
   resources :denuncias, only: [:new, :create, :show]
-  post "denuncias/:id/adjuntar" => 'denuncias#adjuntar', as: :adjuntar
-  delete "archivos/:url_id" => 'archivos#destroy', as: :delete_archivo
 
   get "home/index"
 
