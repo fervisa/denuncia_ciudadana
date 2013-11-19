@@ -8,7 +8,15 @@ class DenunciaMailer < ActionMailer::Base
   #
   def confirmar_denuncia(denuncia)
     @denuncia = denuncia
-
+    adjunta_archivos unless @denuncia.archivos.empty?
     mail to: @denuncia.email
+  end
+
+  private
+
+  def adjunta_archivos
+    @denuncia.archivos.each do |archivo|
+      attachments[archivo.nombre] = File.open(archivo.adjunto.file.path, 'r').read
+    end
   end
 end

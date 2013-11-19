@@ -100,9 +100,27 @@ describe Denuncia do
       denuncia.finalize(valid_attributes).should be_true
     end
 
+    it 'sends an email' do
+      ActionMailer::Base.deliveries = []
+      denuncia = Denuncia.new
+      denuncia.finalize(valid_attributes)
+      email = ActionMailer::Base.deliveries.last
+      email.should_not be_nil
+      email.to.should == ["denunciante@mail.com"]
+      email.subject.should eq 'Denuncia generada desde Denuncia Ciudadana'
+    end
+
     it 'returns false' do
       denuncia = Denuncia.new
       denuncia.finalize({}).should be_false
+    end
+
+    it 'does not send an email' do
+      ActionMailer::Base.deliveries = []
+      denuncia = Denuncia.new
+      denuncia.finalize({})
+      email = ActionMailer::Base.deliveries.last
+      email.should be_nil
     end
 
     it 'does not mark denuncia as finalizada' do
